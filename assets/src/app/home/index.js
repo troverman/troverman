@@ -1,6 +1,6 @@
 angular.module( 'troverman.home', [])
 
-.config(function config( $stateProvider ) {
+.config(['$stateProvider', function config( $stateProvider ) {
 	$stateProvider.state( 'home', {
 		url: '/',
 		views: {
@@ -10,9 +10,9 @@ angular.module( 'troverman.home', [])
 			}
 		}
 	});
-})
+}])
 
-.controller( 'HomeCtrl', function HomeController( $scope, titleService, config, lodash ) {
+.controller( 'HomeCtrl', ['$scope', 'config', 'titleService', function HomeController( $scope, config, titleService ) {
 	titleService.setTitle('troverman');
 	$scope.currentUser = config.currentUser;
-});
+}]);

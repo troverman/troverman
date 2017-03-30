@@ -1,19 +1,32 @@
 angular.module( 'troverman.nav', [
 ])
 
-.controller( 'HeaderCtrl', function HeaderController( $scope, $state, config ) {
+.controller( 'NavCtrl', ['$rootScope', '$scope', '$state', 'config', function NavController( $rootScope, $scope, $state, config ) {
     $scope.currentUser = config.currentUser;
+    $rootScope.$on("$stateChangeSuccess", function() {
+    	window.scrollTo(0, 0);
+    });
+}])
 
-    var navItems = [
-        {title: 'About', translationKey: 'navigation:about', url:'/about',cssClass: 'fa fa-info-circle'},
-        {title: 'Blog', translationKey: 'navigation:messages', url: '/blog', cssClass: 'fa fa-comments'},
-        {title: 'Contact', translationKey: 'navigation:about', url:'/contact',cssClass: 'fa fa-info-circle'},
-        {title: 'Portfolio', translationKey: 'navigation:about', url:'/portfolio',cssClass: 'fa fa-picture-o'},
-    ];
+.directive('navCollapse', function () {
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+            var visible = false;
 
-    if (!$scope.currentUser) {
-        navItems.push({title: 'Login', translationKey: 'navigation:login', url: '/login', cssClass: 'fa fa-sign-in'});
-    }
+            element.on('show.bs.collapse', function () {
+                visible = true;
+            });
 
-    $scope.navItems = navItems;
+            element.on("hide.bs.collapse", function () {
+                visible = false;
+            });
+
+            element.on('click', function(event) {
+                if (visible && 'auto' == element.css('overflow-y')) {
+                    element.collapse('hide');
+                }
+            });
+        }
+    };
 });

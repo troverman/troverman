@@ -37,7 +37,7 @@
     "tag": "v0.10.0-pre",
     "commit": "7e4e91ba0acb29fb74366e4fa07b30c0a5b1cd80"
   },
-  "_source": "git://github.com/balderdashy/angularSails.git",
+  "_source": "https://github.com/balderdashy/angularSails.git",
   "_target": "0.10.0-pre",
   "_originalSource": "angularSails"
 }

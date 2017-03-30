@@ -3,94 +3,91 @@
     <head>
         <title>troverman</title>
         <base href="/">
-        <!-- Viewport mobile tag for sensible mobile support -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-        <!--meta tags for SEO and such-->
-        <meta name="description" content="A full-stack  design,  development, and online marketing firm. Experience NOVO through fully integrated online solutions.">
-        <meta name="author" content="NOVO">
+        <!--META TAGS-->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="description" content="create">
+        <meta name="author" content="troverman">
         <meta name="superfish" content="nofish">
         <meta name="robots" content="index, follow">
-		<meta name="revisit-after" content="1 Day">
-		<link rel="canonical" href="https://www.experiencenovo.io" />
+        <meta name="revisit-after" content="1 Day">
+        <meta name="theme-color" content="#ffffff">
+        <link rel="canonical" href="http://www.troverman.com" />
+        <!--META TAGS END-->
+
+        <!--FAVICONS-->
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+        <link rel="manifest" href="/favicons/manifest.json">
+        <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="/favicons/favicon.ico">
+        <!--FAVICONS END-->
 
         <!--STYLES-->
-        <link rel="stylesheet" href="/styles/css/about.css">
-        <link rel="stylesheet" href="/styles/css/animate.css">
-        <link rel="stylesheet" href="/styles/css/blog.css">
-        <link rel="stylesheet" href="/styles/css/bootstrap-social.css">
         <link rel="stylesheet" href="/styles/css/bootstrap.css">
-        <link rel="stylesheet" href="/styles/css/contact.css">
-        <link rel="stylesheet" href="/styles/css/font-awesome.min.css">
         <link rel="stylesheet" href="/styles/css/home.css">
-        <link rel="stylesheet" href="/styles/css/intro.css">
-        <link rel="stylesheet" href="/styles/css/portfolio.css">
-        <link rel="stylesheet" href="/styles/css/sidebar.css">
         <link rel="stylesheet" href="/styles/css/theme.css">
         <!--STYLES END-->
 
         <!--FONTS-->
-        <link href='http://fonts.googleapis.com/css?family=Lato:400,100,300,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300,200' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Quicksand:400.700' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/fonts/css/font-awesome.min.css">
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,100,300,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300,200' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Quicksand:400.700' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700' rel='stylesheet' type='text/css'>
         <!--FONTS END-->
 
-        <!--Google Analytics-->
+        <!--ANALYTICS-->
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
           ga('create', 'UA-66604530-3', 'auto');
           ga('send', 'pageview');
 
-        </script>
-
-        <!--Heap Analytics-->
-        <script type="text/javascript">
           window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var n=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(n?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var o=document.getElementsByTagName("script")[0];o.parentNode.insertBefore(a,o);for(var r=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["clearEventProperties","identify","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=r(p[c])};
           heap.load("1179656390");
         </script>
+        <!--ANALYTICS END-->
 
     </head>
-<body>
+    <body>
 
-    <%- body %>
+        <%- body %>
 
-    <!--SCRIPTS-->
-    <script src="/bower_components/angular/angular.js"></script>
-    <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="/bower_components/sails.io.js/dist/sails.io.js"></script>
-    <script src="/bower_components/angularSails/dist/ngsails.io.js"></script>
-    <script src="/bower_components/lodash/lodash.js"></script>
-    <script src="/bower_components/moment/moment.js"></script>
-    <script src="/bower_components/angular-moment/angular-moment.js"></script>
-    <script src="/bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
-    <script src="/bower_components/angular-scroll/angular-scroll.js"></script>
-    <script src="/src/app/app.js"></script>
-    <script src="/src/app/header/index.js"></script>
-    <script src="/src/app/home/index.js"></script>
-    <script src="/src/app/intro/index.js"></script>
-    <script src="/src/app/login/index.js"></script>
-    <script src="/src/app/nav/index.js"></script>
-    <script src="/src/app/projects/index.js"></script>
-    <script src="/src/app/register/index.js"></script>
-    <script src="/src/common/models/index.js"></script>
-    <script src="/src/common/models/post.js"></script>
-    <script src="/src/common/models/user.js"></script>
-    <script src="/src/common/services/config.js"></script>
-    <script src="/src/common/services/index.js"></script>
-    <script src="/src/common/services/lodash.js"></script>
-    <script src="/src/common/services/title.js"></script>
-    <script src="/src/common/services/utils.js"></script>
-    <!--SCRIPTS END-->
+        <!--SCRIPTS-->
+        <script src="/bower_components/angular/angular.js"></script>
+        <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="/bower_components/sails.io.js/dist/sails.io.js"></script>
+        <script src="/bower_components/angularSails/dist/ngsails.io.js"></script>
+        <script src="/bower_components/lodash/lodash.js"></script>
+        <script src="/bower_components/moment/moment.js"></script>
+        <script src="/bower_components/angular-moment/angular-moment.js"></script>
+        <script src="/bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+        <script src="/src/app/app.js"></script>
+        <script src="/src/app/home/index.js"></script>
+        <script src="/src/app/nav/index.js"></script>
+        <script src="/src/common/models/host.js"></script>
+        <script src="/src/common/models/index.js"></script>
+        <script src="/src/common/models/post.js"></script>
+        <script src="/src/common/models/show.js"></script>
+        <script src="/src/common/models/topic.js"></script>
+        <script src="/src/common/models/topicrating.js"></script>
+        <script src="/src/common/models/user.js"></script>
+        <script src="/src/common/services/config.js"></script>
+        <script src="/src/common/services/index.js"></script>
+        <script src="/src/common/services/lodash.js"></script>
+        <script src="/src/common/services/seo.js"></script>
+        <script src="/src/common/services/title.js"></script>
+        <script src="/src/common/services/utils.js"></script>
+        <!--SCRIPTS END-->
 
-    <!--TEMPLATES-->
-    <script type="text/javascript" src="/templates.js"></script>
-    <!--TEMPLATES END-->
+        <!--TEMPLATES-->
+        <script type="text/javascript" src="/templates.js"></script>
+        <!--TEMPLATES END-->
 
-</body>
+    </body>
 </html>

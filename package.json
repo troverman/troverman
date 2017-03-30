@@ -1,8 +1,8 @@
 {
-  "name": "1.0.0",
-  "private": true,
-  "version": "0.0.0",
-  "description": "NOVO LLC",
+  "name": "troverman",
+  "private": false,
+  "version": "0.0.1",
+  "description": "troverman",
   "keywords": [],
   "dependencies": {
     "bcryptjs": "~2.1.0",
@@ -47,6 +47,6 @@
     "type": "git",
     "url": "https://github.com/NovoExperience/NOVO.git"
   },
-  "author": "NOVO",
+  "author": "troverman",
   "license": ""
 }

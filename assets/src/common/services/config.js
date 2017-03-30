@@ -1,11 +1,11 @@
 angular.module( 'services.config', ['lodash'])
 
-.service('config', function(lodash) {
+.service('config',['lodash', function(lodash) {
 
 	// private vars here if needed
 
 	return {
-		siteName: 'NOVO',
+		siteName: 'FourCast LIVE',
 		// no trailing slash!
 		siteUrl: '/',
 		apiUrl: '/api',
@@ -13,4 +13,4 @@ angular.module( 'services.config', ['lodash'])
 		currentUser: false
 	};
 
-});
+}]);
