@@ -10,6 +10,7 @@ angular.module( 'troverman', [
     'troverman.home',
     'troverman.nav',
     'troverman.posts',
+    'troverman.token',
 ])
 
 .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function myAppConfig ( $stateProvider, $urlRouterProvider, $locationProvider ) {
