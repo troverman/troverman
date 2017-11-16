@@ -53,10 +53,6 @@ a {
 a:hover, a:focus {
     color: #002c54;
 }
-a img:hover, a img:focus {
-    cursor: -webkit-zoom-in;
-    cursor: zoom-in;
-}
 blockquote {
     color: #777777;
     font-style: italic;

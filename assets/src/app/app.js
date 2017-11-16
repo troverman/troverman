@@ -8,6 +8,7 @@ angular.module( 'troverman', [
     'services',
     'models',
     'troverman.home',
+    'troverman.footer',
     'troverman.nav',
     'troverman.posts',
     'troverman.token',
