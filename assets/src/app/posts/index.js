@@ -1,5 +1,4 @@
 angular.module( 'troverman.posts', [])
-
 .config(['$stateProvider', function config( $stateProvider ) {
 	$stateProvider.state( 'posts', {
 		url: '/posts',
@@ -11,7 +10,6 @@ angular.module( 'troverman.posts', [])
 		}
 	});
 }])
-
 .controller( 'PostsCtrl', ['$scope', 'config', 'titleService', function PostsController( $scope, config, titleService ) {
 	titleService.setTitle('troverman');
 	$scope.currentUser = config.currentUser;

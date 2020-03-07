@@ -1,112 +1,34 @@
-/**
- * PostController
- *
- * @description :: Server-side logic for managing posts
- * @help        :: See http://links.sailsjs.org/docs/controllers
- */
-var _ = require('lodash');
-
+const crypto = require('crypto');
 module.exports = {
-
-	getAll: function(req, res) {
-		Post.getAll()
-		.spread(function(models) {
-			Post.watch(req);
-			Post.subscribe(req, models);
-			res.json(models);
-		})
-		.fail(function(err) {
-			// An error occured
-		});
+	//config:{
+	//	routes:
+	//}
+	get: async function(req, res) {
+		var query = {};
+		if (req.param.id){query = {id:req.param.id}}
+		if (req.param.path){query = {url_title: req.param.path};}
+		var models = await Post.find(query);
+		res.json(models);
 	},
-
-	getOne: function(req, res) {
-		Post.getOne(req.param('id'))
-		.spread(function(model) {
-			Post.subscribe(req, model);
-			res.json(model);
-		})
-		.fail(function(err) {
-			res.send(404);
-		});
-	},
-
-	update: function(req, res) {
-		var id = req.param('id');
-		var userId = req.param('user');
-
+	create: async function (req, res) {
 		var model = {
 			title: req.param('title'),
-			url_title: req.param('url_title'),
-			post_content: req.param('post_content'),
-			user: userId
+			post_content: req.param('content'),
+			user: req.param('user')
 		};
-
-		Post.update( {id: id}, model).exec(function afterwards(err, updated){
-		  if (err) {
-		    return;
-		  }
-		});
+		model.hash = crypto.createHmac('sha256', 'CRE8').update(JSON.stringify(model)).digest('hex');
+		var post = await Post.create(model)
+		res.json(post);
 	},
-
-	getByUrlTitle: function(req, res) {
-		Post.find()
-		.where({url_title: req.param('path')})
-		.spread(function(model) {
-			Post.subscribe(req, model);
-			res.json(model);
-		})
-		.fail(function(err) {
-			res.send(404);
-		});
-	},
-
-	create: function (req, res) {
-		var userId = req.param('user');
+	update: async function(req, res) {
+		var id = req.param('id');
 		var model = {
 			title: req.param('title'),
-			url_title: req.param('url_title'),
-			post_content: req.param('post_content'),
-			user: userId
+			content: req.param('content'),
+			user: req.param('user')
 		};
-
-		Post.create(model)
-		.exec(function(err, post) {
-			if (err) {
-				return console.log(err);
-			}
-			else {
-				Post.publishCreate(post);
-				res.json(post);
-			}
-		});
+		var model = await Post.update({id: id}, model);
+		res.json(model);
 	},
-
-	destroy: function (req, res) {
-		var id = req.param('id');
-		if (!id) {
-			return res.badRequest('No id provided.');
-		}
-
-		// Otherwise, find and destroy the model in question
-		Post.findOne(id).exec(function(err, model) {
-			if (err) {
-				return res.serverError(err);
-			}
-			if (!model) {
-				return res.notFound();
-			}
-
-			Post.destroy(id, function(err) {
-				if (err) {
-					return res.serverError(err);
-				}
-
-				Post.publishDestroy(model.id);
-				return res.json(model);
-			});
-		});
-	}
-	
 };
 

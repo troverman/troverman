@@ -1,40 +1,43 @@
+const crypto = require('crypto');
 module.exports = {
-	getAll: function(req, res) {
-		User.getAll()
-		.spread(function(models) {
-			res.json(models);
-		})
-		.fail(function(err) {
-			// An error occured
-		});
+	get: async function(req, res) {
+		var query = {};
+		if (req.param.id){query = {id:req.param.id}}
+		if (req.param.path){query = {url_title: req.param.path};}
+		var models = await User.find(query);
+		res.json(models);
 	},
-
-	getOne: function(req, res) {
-		User.getOne(req.param('id'))
-		.spread(function(model) {
-			res.json(model);
-		})
-		.fail(function(err) {
-			// res.send(404);
-		});
+	//CREDIENTIALS ... PEER CENTRIC THO ... HASH IT 
+	getMine: async function(req,res){
+		var me = req.user.id;
+		var user = await User.findOne(me).populate('passports')
+		res.json(user);
 	},
-
-	create: function (req, res) {
+	create: async function (req, res) {
 		var model = {
 			username: req.param('username'),
 			email: req.param('email'),
-			first_name: req.param('first_name')
+			firstName: req.param('firstName'),
+			lastName: req.param('lastName'),
+			title: req.param('title'),
+			passports: req.param('passports')
 		};
-
-		User.create(model)
-		.exec(function(err, model) {
-			if (err) {
-				return console.log(err);
-			}
-			else {
-				User.publishCreate(model.toJSON());
-				res.json(model);
-			}
-		});
-	}
+		model.hash = crypto.createHmac('sha256', 'CRE8').update(JSON.stringify(model)).digest('hex');
+		var newUser = await User.create(model);
+		res.json(newUser);	
+	},
+	//CREDIENTIALS (ID VS HASH)
+	update: async function(req, res) {
+		var id = req.param('id');
+		var model = {
+			username: req.param('username'),
+			email: req.param('email'),
+			firstName: req.param('firstName'),
+			lastName: req.param('lastName'),
+			title: req.param('title'),
+			passports: req.param('passports')
+		};
+		var model = await User.update({id: id}, model);
+		res.json(model);
+	},
 };

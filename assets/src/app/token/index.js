@@ -1,5 +1,4 @@
 angular.module( 'troverman.token', [])
-
 .config(['$stateProvider', function config( $stateProvider ) {
 	$stateProvider.state( 'token', {
 		url: '/token',
@@ -11,7 +10,6 @@ angular.module( 'troverman.token', [])
 		}
 	});
 }])
-
 .controller( 'TokenCtrl', ['$scope', 'config', 'titleService', function TokenController( $scope, config, titleService ) {
 	titleService.setTitle('troverman');
 	$scope.currentUser = config.currentUser;

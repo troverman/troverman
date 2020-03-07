@@ -1,5 +1,4 @@
 angular.module( 'troverman.home', [])
-
 .config(['$stateProvider', function config( $stateProvider ) {
 	$stateProvider.state( 'home', {
 		url: '/',
@@ -11,7 +10,6 @@ angular.module( 'troverman.home', [])
 		}
 	});
 }])
-
 .controller( 'HomeCtrl', ['$scope', 'config', 'titleService', function HomeController( $scope, config, titleService ) {
 	titleService.setTitle('troverman');
 	$scope.currentUser = config.currentUser;
